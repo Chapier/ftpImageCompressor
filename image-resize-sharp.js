@@ -5,8 +5,8 @@ const isImage = require('is-image');
 
 var path = require('path')
 
-let input = 'G:/A mettre sur le site/Photos/'; /*"C:/wamp64/www/nodeJs/images/a_faire/";*/
-let output = 'C:/wamp64/www/nodeJs/images/output2/';
+let input = __dirname + '/images/after/compressed/';
+let output = __dirname + '/images/after/final/';
 
 let largeSizeDir = '600/';
 let largeSize = '_l';
@@ -17,19 +17,17 @@ let smallSize = '_s';
 let verySmallSizeDir = '80/';
 let verySmallSize = '_vs';
 
-
 const vs = output + verySmallSizeDir;
 const s = output + smallSizeDir;
 const l = output + largeSizeDir;
-const finalDir = "final/";
 
 fs.readdirSync(input).forEach(file => {
 
 	if (isImage(file)){
 
 		let name = file.split(/\D[^-[1-9]]?/)
-		
-		if (name !== undefined || name.length > 0) {
+
+		if (name !== undefined || nameRegex.length > 0) {
 			
 			name = name[0]
 			//Devoir prendre en compte le nom des fichier avec des -1 -2 (faire un regex pour le nom)
